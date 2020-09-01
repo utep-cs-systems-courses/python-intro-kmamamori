@@ -32,14 +32,18 @@ with open(inFile, 'r') as i:
     for line in i:
         line = line.strip()
         if len(line) != 0:
-            words = re.split('[ \t]', line)
+            # print(line)
+            words = re.split(r'\s|-|\'', line)
+            # print(words)
             for word in words:
                 # if 3 == 3:
-                if ord(word[-1]) > 122 or ord(word[-1]) < 65:
-                    word = word[:-1]
-                word = word.lower()
-                # print(word)
-                putWord(word, alphabetH, wordsDict)
+                if word != '':
+		                if ord(word[-1]) > 122 or ord(word[-1]) < 65:
+		                    word = word[:-1]
+		                if word.isalpha():
+		                    word = word.lower()
+                		    # print(word)
+		                    putWord(word, alphabetH, wordsDict)
     # print(alphabetH)
     # print(wordsDict)
 
@@ -48,14 +52,13 @@ with open(inFile, 'r') as i:
 
 
 with open(outFile, 'w') as output:
-		# output.write('b')
-		for alpha in alphabetH:
-				alpha.sort()
-				for word in alpha:
-						# for word in wordSize:
-						output.write("%s %d\n" % (word, wordsDict[word]))
-		output.close()
-
+    # output.write('b')
+    for alpha in alphabetH:
+        alpha.sort()
+        for word in alpha:
+            # for word in wordSize:
+            output.write("%s %d\n" % (word, wordsDict[word]))
+    output.close()
 
 
 # print(i)
