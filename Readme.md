@@ -28,3 +28,9 @@ Note that there are two major dialects of Python.  Python 3.* is
 incompatible with 2*.  As a result, Python 2.7 remains popular.  All
 of our examples were ported to 3.* during the summer of 2018.  We (mildly)
 encourage students to use that dialect of Python.
+
+## Usage
+```bash
+python3 wordCount.py wordCount.py input.txt output.txt
+```
+The output will be included in 'output.txt' with an ascending order with a occurance.
